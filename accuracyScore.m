@@ -1,4 +1,4 @@
-function accuracy = accuracyScore(trueLabelsOrConfusionMatrix, predictedLabels)
+function accuracy = accuracyScore(trueLabelsOrConfMat, predictedLabels)
 % accuracyScore Accuracy classification score
 %   Computes the accuracy score for binary or multiclass labels.
 %
@@ -17,14 +17,14 @@ function accuracy = accuracyScore(trueLabelsOrConfusionMatrix, predictedLabels)
 %   Copyright 2022 Trevor Vannoy, BMW Lab @ MSU
 %   SPDX-License-Identifier: BSD-3-Clause
     arguments
-        trueLabelsOrConfusionMatrix {mustBeSquareMatrixOrVector, mustBeNumericOrLogical, mustBeInteger}
+        trueLabelsOrConfMat {mustBeSquareMatrixOrVector, mustBeNumericOrLogical, mustBeInteger}
         predictedLabels {mustBeNumericOrLogical, mustBeInteger} = 0
     end
 
     if nargin == 1
-        confusionMatrix = trueLabelsOrConfusionMatrix;
+        confusionMatrix = trueLabelsOrConfMat;
     else
-        trueLabels = trueLabelsOrConfusionMatrix;
+        trueLabels = trueLabelsOrConfMat;
         mustBeEqualSize(trueLabels, predictedLabels);
         confusionMatrix = confusionmat(trueLabels, predictedLabels);
     end
