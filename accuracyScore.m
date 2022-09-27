@@ -18,7 +18,7 @@ function accuracy = accuracyScore(trueLabelsOrConfMat, predictedLabels)
 %   SPDX-License-Identifier: BSD-3-Clause
     arguments
         trueLabelsOrConfMat {mustBeSquareMatrixOrVector, mustBeNumericOrLogical, mustBeInteger}
-        predictedLabels {mustBeNumericOrLogical, mustBeInteger} = 0
+        predictedLabels {mustBeNumericOrLogical, mustBeInteger, mustBeVector} = 0
     end
 
     if nargin == 1
