@@ -7,9 +7,7 @@ function mustBeSquareMatrixOrVector(arg)
 %   SPDX-License-Identifier: BSD-3-Clause
     dims = size(arg);
     notSquare = dims(1) ~= dims(2);
-    notVector = ~((dims(1) == 1 && dims(2) > 1) || (dims(2) == 1 && dims(1) >1));
-
-    if notSquare && notVector
+    if notSquare && ~isvector(arg)
         eid = 'mustBeSquareMatrixOrVector:notSquareMatrixOrVector';
         msg = 'Input must be a square matrix or a vector.';
         throwAsCaller(MException(eid, msg));
