@@ -5,7 +5,7 @@ function mustBeSquareMatrix(arg)
 %   Copyright 2022 Trevor Vannoy, BMW Lab @ MSU
 %   SPDX-License-Identifier: BSD-3-Clause
     dims = size(arg);
-    if dims(1) ~= dims(2)
+    if (dims(1) ~= dims(2)) || isempty(arg)
         eid = 'mustBeSquareMatrix:notSquareMatrix';
         msg = 'Input must be a square matrix.';
         throwAsCaller(MException(eid, msg));
